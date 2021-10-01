@@ -6,7 +6,7 @@ export default function HomePage() {
   return (
     <Container style={{ minHeight: "100vh" }}>
       <h1>Bienvenid@  App</h1>
-      <h3>MERN Application</h3>
+      <h3> Application</h3>
 
       <Link to="/workouts">
         <Button>Ver</Button>

@@ -3,7 +3,7 @@ import axios from "axios";
 class ExercisesService {
   constructor() {
     this.app = axios.create({
-      baseURL: "http://localhost:5005/api/exercises",
+      baseURL: "http://localhost:5000/api/exercises",
       withCredentials: true,
     });
   }

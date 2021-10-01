@@ -3,13 +3,12 @@ const { Schema, model } = require("mongoose");
 const workoutSchema = new Schema({
   name: {
     type: String,
-    unique: true,
     required: true,
   },
   day: {
     type: String,
     enum: [
-      "Monday",
+      "monday",
       "tuesday",
       "wednesday",
       "thursday",

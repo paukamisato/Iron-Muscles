@@ -21,13 +21,23 @@ const userSchema = new Schema(
       type: String,
       default: "", //aqui falta poner foto por defecto
     },
-    personal_data: {
-      name: String,
-      lastname: String,
-      age: Number,
-      gender: String,
-      height: Number,
-      weight: Number,
+    name: {
+      type: String,
+    },
+    lastname: {
+      type: String,
+    },
+    age: {
+      type: Number,
+    },
+    gender: {
+      type: String,
+    },
+    height: {
+      type: Number,
+    },
+    weight: {
+      type: Number,
     },
   },
   { timestamps: true }

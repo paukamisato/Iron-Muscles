@@ -30,8 +30,9 @@ router.get("/:id", (req, res) => {
 
 router.post("/", (req, res) => {
   const workout = req.body;
-  Workout     
-    .create({...workout, owner: req.session.currentUser._id})
+  Workout
+    .create({...workout, owner: req.session.currentUser._id})    
+    
     .then((workout) =>
       res.status(200).json({ workout, message: "Workout created" })
     )

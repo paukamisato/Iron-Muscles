@@ -7,7 +7,18 @@ const User = require("./../models/user.model");
 
 // Signup (post)
 router.post("/signup", (req, res) => {
-  const { email, password, role, photo, personal_data } = req.body;
+  const {
+    email,
+    password,
+    role,
+    photo,
+    name,
+    lastname,
+    age,
+    gender,
+    height,
+    weight,
+  } = req.body;
   console.log(req.body);
   User.findOne({ email })
     .then((user) => {
@@ -19,7 +30,17 @@ router.post("/signup", (req, res) => {
       const salt = bcrypt.genSaltSync(bcryptSalt);
       const hashPass = bcrypt.hashSync(password, salt);
 
-      User.create({ email, password: hashPass, role, photo, personal_data })
+      User.create({
+        email,
+        password: hashPass,
+        photo,
+        name,
+        lastname,
+        age,
+        gender,
+        height,
+        weight,
+      })
         .then(() => res.json({ code: 200, message: "User created" }))
         .catch((err) =>
           res.status(500).json({
@@ -77,6 +98,22 @@ router.post("/isloggedin", (req, res) => {
   req.session.currentUser
     ? res.json(req.session.currentUser)
     : res.status(401).json({ code: 401, message: "Unauthorized" });
+});
+
+router.put("/:id", (req, res) => {
+  const { id } = req.params;
+
+  //req.session.currentUser._id
+  User.findByIdAndUpdate(id, req.body, { new: true })
+    .then((user) => {
+      req.session.currentUser = user;
+      res.status(200).json({ user, message: "user edited" });
+    })
+    .catch((err) =>
+      res
+        .status(500)
+        .json({ code: 500, message: "Error editing", err: err.message })
+    );
 });
 
 module.exports = router;
