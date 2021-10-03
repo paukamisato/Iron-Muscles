@@ -2,17 +2,19 @@ import axios from "axios";
 
 class WorkoutsService {
   constructor() {
-    this.app = axios.create({
+    this.instance = axios.create({
       baseURL: "http://localhost:5000/api/workouts",
       withCredentials: true,
+      
     });
+    console.log("servicio",this.baseURL)
   }
 
-  getAllWorkouts = () => this.app.get("/workouts");
-  getOneWorkout = (workouts_id) => this.app.get(`/${workouts_id}`);
-  createWorkouts = (workoutsDetails) => this.app.post("/", workoutsDetails);
-  deleteOneWorkout = (workouts_id) => this.app.delete(`/${workouts_id}`);
-  updateWorkout = (workouts_id) => this.app.put(`/${workouts_id}`);
+  getAllWorkouts = () => this.instance.get("/");
+  getOneWorkout = (workouts_id) => this.instance.get(`/${workouts_id}`);
+  createWorkouts = (workoutsDetails) => this.instance.post("/", workoutsDetails);
+  deleteOneWorkout = (workouts_id) => this.instance.delete(`/${workouts_id}`);
+  updateWorkout = (workouts_id) => this.instance.put(`/${workouts_id}`);
 }
 
 export default WorkoutsService;

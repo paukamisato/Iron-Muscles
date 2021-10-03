@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Container, Form, Button } from "react-bootstrap";
 import AuthService from "../../../service/auth.service";
+import { Link } from "react-router-dom";
 
 export default class Profile extends Component {
   constructor(props) {
@@ -128,6 +129,12 @@ export default class Profile extends Component {
         ) : (
           <p>Loading....</p>
         )}
+        <div>
+        <Link to={"/workoutForm"}>
+                    <Button variant="primary">New Workout</Button>
+                  </Link>
+        </div>
+        
       </>
     );
   }

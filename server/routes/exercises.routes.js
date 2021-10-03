@@ -4,7 +4,6 @@ const router = express.Router();
 
 router.get("/", (req, res) => {
   Exercise.find()
-    .select("title imageUrl")
     .then((exercises) => res.status(200).json(exercises))
     .catch((err) =>
       res

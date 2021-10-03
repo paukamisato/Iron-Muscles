@@ -3,8 +3,11 @@ import HomePage from "../pages/HomePage/HomePage";
 import Login from "../pages/Login/Login";
 import Signup from "../pages/Signup/Signup";
 import Profile from "../pages/Profile/Profile";
-import Exercises from "../pages/Exercises/ExercisesPage";
+import Exercises from "../pages/Exercises/ExercisesList";
+import ExerciseDetails from "../pages/Exercises/ExerciseDetails";
 import Workouts from "../pages/Workouts/WorkoutsList";
+import WorkoutDetails from "../pages/Workouts/workoutDetails";
+import WorkoutForm from "../pages/WorkoutForm/WorkoutForm";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 const Routes = ({ storeUser, loggedUser }) => {
@@ -16,6 +19,10 @@ const Routes = ({ storeUser, loggedUser }) => {
       <Route exact path="/profile"render={(props) =>loggedUser ? (<Profile {...props} loggedUser={loggedUser} storeUser={storeUser}/>) : (<Redirect to="/login" />)}/>
       <Route exact path="/workouts" render={() => <Workouts />} />
       <Route exact path="/exercises" render={() => <Exercises />} />
+      <Route path="/exercises/:id" render={(props) => <ExerciseDetails {...props} />} />
+      <Route exact path="/workouts/:id" render={(props) => <WorkoutDetails {...props} />} />
+      <Route path="/workoutForm" render={(props) => <WorkoutForm {...props} />} />
+
     </Switch>
   );
 };

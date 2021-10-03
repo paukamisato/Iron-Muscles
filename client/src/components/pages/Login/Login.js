@@ -9,6 +9,7 @@ class Login extends Component {
       email: "",
       password: "",
     };
+    
     this.authService = new AuthService();
   }
 

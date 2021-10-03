@@ -5,6 +5,7 @@ import { Container, Form, Button } from "react-bootstrap";
 export default class Signup extends Component {
   constructor(props) {
     super(props);
+    
     this.state = {
       email: "",
       password: "",
@@ -15,6 +16,7 @@ export default class Signup extends Component {
     };
     this.authService = new AuthService();
   }
+
   handleInput = (e) => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
