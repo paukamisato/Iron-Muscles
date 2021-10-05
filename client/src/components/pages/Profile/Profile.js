@@ -37,7 +37,6 @@ export default class Profile extends Component {
       .updateAuth(_id, photo, name, lastname, age, gender, height, weight)
       .then((res) => {
         this.props.storeUser(res.data.user);
-        console.log("objectobjectobjectobject");
         this.props.history.push("/");
       })
       .catch((err) => console.log(err));

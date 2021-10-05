@@ -1,29 +1,39 @@
 const { Schema, model } = require("mongoose");
 
-
 const exerciseSchema = new Schema({
   name: {
     type: String,
     unique: true,
-    required:true  
+    required: true,
   },
-  photo:{
+  photo: {
     type: String,
-    required:true 
-  }, 
-  mainMuscleInvolved:{
+    required: true,
+  },
+  mainMuscleInvolved: {
     type: String,
-    enum:['Back','Chest','Shoulders','Biceps','Triceps','Forearm','Glutes','Upper Legs','Lower Legs','cardio'],
-    required:true 
+    enum: [
+      "abs",
+      "back",
+      "chest",
+      "shoulders",
+      "biceps",
+      "triceps",
+      "forearm",
+      "glutes",
+      "upper legs",
+      "lower legs",
+      "cardio",
+    ],
+    required: true,
   },
-  equipment:{
-    type: [String],
-  },
-  instructions:{
+  equipment: {
     type: String,
-    required:true 
   },
-
+  instructions: {
+    type: String,
+    required: true,
+  },
 });
 
 const Exercise = model("Exercise", exerciseSchema);

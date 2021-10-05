@@ -19,19 +19,24 @@ router.get("/:id", (req, res) => {
       res.status(200).json({ exercise, message: "Exercise getted" })
     )
     .catch((err) =>
-      res
-        .status(500)
-        .json({
-          code: 500,
-          message: "Error retrieving a single exercise",
-          err: err.message,
-        })
+      res.status(500).json({
+        code: 500,
+        message: "Error retrieving a single exercise",
+        err: err.message,
+      })
     );
 });
 
 router.post("/", (req, res) => {
-  const exercise = req.body;
-  Exercise.create(exercise)
+  const { name, photo, mainMuscleInvolved, equipment, instructions } = req.body;
+  console.log("server", req.body);
+  Exercise.create({
+    name,
+    photo,
+    mainMuscleInvolved,
+    equipment,
+    instructions
+  })
     .then((exercise) =>
       res.status(200).json({ exercise, message: "Exercise created" })
     )
@@ -51,13 +56,11 @@ router.delete("/:id", (req, res) => {
   Exercise.findByIdAndDelete(id)
     .then(() => res.status(200).json({ message: `Exercise ${id} deleted` }))
     .catch((err) =>
-      res
-        .status(500)
-        .json({
-          code: 500,
-          message: "Error deleting exercise",
-          err: err.message,
-        })
+      res.status(500).json({
+        code: 500,
+        message: "Error deleting exercise",
+        err: err.message,
+      })
     );
 });
 

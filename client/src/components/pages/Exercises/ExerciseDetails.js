@@ -22,7 +22,6 @@ export default function ExercisesDetails(props) {
     return () => (mounted = false);
   }, []);
 
-  //porque tuve que poner exercise.exercise??
 
   return (
     <Container>

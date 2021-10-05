@@ -19,7 +19,8 @@ const userSchema = new Schema(
     },
     photo: {
       type: String,
-      default: "", //aqui falta poner foto por defecto
+      required: true, 
+      //default: "", aqui falta poner foto por defecto
     },
     name: {
       type: String,

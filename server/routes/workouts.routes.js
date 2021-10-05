@@ -28,10 +28,10 @@ router.get("/:id", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  const workout = req.body;
+  const {name, day, date, exercises, duration} = req.body;
+  console.log("work",req.body)
   Workout
-    .create({...workout, owner: req.session.currentUser._id})    
-    
+    .create({name, day, date, exercises, duration, owner: req.session.currentUser._id})    
     .then((workout) =>
       res.status(200).json({ workout, message: "Workout created" })
     )

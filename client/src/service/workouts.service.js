@@ -7,7 +7,7 @@ class WorkoutsService {
       withCredentials: true,
       
     });
-    console.log("servicio",this.baseURL)
+    console.log("servicio3 --->",this.instance.baseURL)
   }
 
   getAllWorkouts = () => this.instance.get("/");

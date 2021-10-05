@@ -13,7 +13,7 @@ const Footer = () => <footer className="page-footer font-small blue pt-4">
             <div className="col-md-3 mb-md-0 mb-3">
                 <h5 className="text-uppercase">Links</h5>
                 <ul className="list-unstyled">
-                    <li><a href="#!">Link 1</a></li>
+                    <li><a href="/exercises/create">exercises create</a></li>
                     <li><a href="#!">Link 2</a></li>
                 </ul>
             </div>

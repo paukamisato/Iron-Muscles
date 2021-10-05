@@ -13,7 +13,6 @@ export default function WorkoutsList() {
       if (mounted) {
         setWorkout(workout.data);
       }
-      console.log("ENTROworkutlist: ", mounted);
     });
     return () => (mounted = false);
   }, []);
