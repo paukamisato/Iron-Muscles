@@ -73,7 +73,7 @@ router.put("/:id", (req, res) => {
     .catch((err) =>
       res
         .status(500)
-        .json({ code: 500, message: "Error editing", err: err.message })
+        .json({ code: 500, message: "Error editing", err })
     );
 });
 

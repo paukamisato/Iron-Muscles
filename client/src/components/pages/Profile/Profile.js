@@ -11,6 +11,7 @@ export default class Profile extends Component {
   }
 
   componentDidMount = () => {
+    console.log("object");
     this.setState(
       {
         ...this.props.loggedUser,
@@ -129,11 +130,10 @@ export default class Profile extends Component {
           <p>Loading....</p>
         )}
         <div>
-        <Link to={"/workoutForm"}>
-                    <Button variant="primary">New Workout</Button>
-                  </Link>
+          <Link to={"/workoutForm"}>
+            <Button variant="primary">New Workout</Button>
+          </Link>
         </div>
-        
       </>
     );
   }

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import AuthService from "../../../service/auth.service";
+import CloudService from "../../../service/cloud.service";
 import { Container, Form, Button } from "react-bootstrap";
 
 export default class Signup extends Component {
@@ -15,11 +16,30 @@ export default class Signup extends Component {
       lastname: "",
     };
     this.authService = new AuthService();
+    this.cloudService = new CloudService();
   }
 
   handleInput = (e) => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
+  };
+
+  handleFileUpload = (e) => {
+    console.log("The file to be uploaded is: ", e.target.files[0]);
+
+    const uploadData = new FormData();
+    uploadData.append("photo", e.target.files[0]);
+
+    this.cloudService
+      .handleUpload(uploadData)
+      .then((response) => {
+        console.log("response is: ", response);
+
+        this.setState({ photo: response.data.secure_url });
+      })
+      .catch((err) => {
+        console.log("Error while uploading the file: ", err);
+      });
   };
 
   handleFormSubmit = (e) => {
@@ -60,9 +80,7 @@ export default class Signup extends Component {
           <Form.Group className="mb-3" controlId="formFile">
             <Form.Label>Photo</Form.Label>
             <Form.Control
-              name="photo"
-              value={this.state.photo}
-              onChange={this.handleInput}
+              onChange={(e) => this.handleFileUpload(e)}
               type="file"
               placeholder="Photo"
             />

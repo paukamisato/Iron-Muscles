@@ -8,7 +8,7 @@ const exerciseSchema = new Schema({
   },
   photo: {
     type: String,
-    required: true,
+    required: true, 
   },
   mainMuscleInvolved: {
     type: String,

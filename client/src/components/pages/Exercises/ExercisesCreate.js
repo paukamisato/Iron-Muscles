@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ExercisesService from "../../../service/exercises.service";
+import CloudService from "../../../service/cloud.service";
 import Select from "react-select";
 import { Container, Form, Button } from "react-bootstrap";
 
@@ -9,12 +10,13 @@ export default class ExercisesCreate extends Component {
 
     this.state = {
       name: "",
-      photo: "",
+      photo: [""],
       mainMuscleInvolved: "",
       equipment: "",
       instructions: "",
     };
     this.exercisesService = new ExercisesService();
+    this.cloudService = new CloudService();
   }
 
   mainMuscleInvolvedOptions = [
@@ -28,7 +30,7 @@ export default class ExercisesCreate extends Component {
     { value: "glutes", label: "glutes" },
     { value: "upper legs", label: "upper legs" },
     { value: "lower legs", label: "lower legs" },
-    { value: "cardio", label: "cardio" }
+    { value: "cardio", label: "cardio" },
   ];
 
   handleSelectInput = (selectedOption) => {
@@ -42,11 +44,30 @@ export default class ExercisesCreate extends Component {
     this.setState({ [name]: value });
   };
 
+  handleFileUpload = (e) => {
+    console.log("The file to be uploaded is: ", e.target.files[0]);
+
+    const uploadData = new FormData();
+    uploadData.append("photo", e.target.files[0]);
+
+    this.cloudService
+      .handleUpload(uploadData)
+      .then((response) => {
+        console.log("response is: ", response);
+
+        this.setState({ photo: response.data.secure_url });
+      })
+      .catch((err) => {
+        console.log("Error while uploading the file: ", err);
+      });
+  };
+
   handleFormSubmit = (e) => {
     e.preventDefault();
-    const { name, photo, mainMuscleInvolved, equipment, instructions } = this.state;
+    const { name, photo, mainMuscleInvolved, equipment, instructions } =
+      this.state;
 
-    this.exercisesService 
+    this.exercisesService
       .createExercise({
         name,
         photo,
@@ -59,7 +80,6 @@ export default class ExercisesCreate extends Component {
   };
 
   render() {
-    
     return (
       <Container>
         <Form onSubmit={this.handleFormSubmit}>
@@ -77,9 +97,7 @@ export default class ExercisesCreate extends Component {
           <Form.Group className="mb-3" controlId="formFile">
             <Form.Label>Photo</Form.Label>
             <Form.Control
-              name="photo"
-              value={this.state.photo}
-              onChange={this.handleInput}
+              onChange={(e) => this.handleFileUpload(e)}
               type="file"
               placeholder="Photo"
             />
@@ -88,7 +106,7 @@ export default class ExercisesCreate extends Component {
           <Form.Group className="mb-3" controlId="formBasicMainMuscleInvolved">
             <Form.Label>Main Muscle Involved</Form.Label>
             <Select
-              options = {this.mainMuscleInvolvedOptions}
+              options={this.mainMuscleInvolvedOptions}
               value={this.state.mainMuscleInvolved.value}
               onChange={this.handleSelectInput}
               placeholder="MainMuscleInvolved"

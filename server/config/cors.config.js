@@ -1,4 +1,4 @@
-const cors = require('cors');
+const cors = require("cors");
 
 const whitelist = [process.env.ORIGIN];
 
@@ -7,8 +7,7 @@ const corsOptions = {
     const isOriginWhiteListed = whitelist.includes(origin);
     cb(null, isOriginWhiteListed);
   },
-  credentials: true
-}
-
+  credentials: true,
+};
 
 module.exports = (app) => app.use(cors(corsOptions));
