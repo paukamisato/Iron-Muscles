@@ -1,0 +1,73 @@
+[{
+  "_id": {
+    "$oid": "615ea342421cff7d35b452ad"
+  },
+  "name": "Back",
+  "day": "monday",
+  "date": {
+    "$date": "2021-10-07T00:00:00Z"
+  },
+  "exercises": [
+    {
+      "$oid": "615d8b1531e360bb53650d37"
+    },
+    {
+      "$oid": "615df95298579ba84d5346b7"
+    },
+    {
+      "$oid": "615e29a698579ba84d53470c"
+    }
+  ],
+  "duration": 20,
+  "owner": {
+    "$oid": "6156bd7f1b97c211a14a399b"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "615ea378421cff7d35b452b1"
+  },
+  "name": "legs",
+  "day": "tuesday",
+  "date": {
+    "$date": "2021-10-08T00:00:00Z"
+  },
+  "exercises": [
+    {
+      "$oid": "615d8b1531e360bb53650d37"
+    },
+    {
+      "$oid": "615df95298579ba84d5346b7"
+    }
+  ],
+  "duration": 15,
+  "owner": {
+    "$oid": "6156bd7f1b97c211a14a399b"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "615ea3c6421cff7d35b452b5"
+  },
+  "name": "shoulders",
+  "day": "wednesday",
+  "date": {
+    "$date": "2021-10-09T00:00:00Z"
+  },
+  "exercises": [
+    {
+      "$oid": "615e29a698579ba84d53470c"
+    },
+    {
+      "$oid": "615df95298579ba84d5346b7"
+    },
+    {
+      "$oid": "615d8b1531e360bb53650d37"
+    }
+  ],
+  "duration": 20,
+  "owner": {
+    "$oid": "6156bd7f1b97c211a14a399b"
+  },
+  "__v": 0
+}]

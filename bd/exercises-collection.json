@@ -1,0 +1,31 @@
+[{
+  "_id": {
+    "$oid": "615d8b1531e360bb53650d37"
+  },
+  "name": "Band Back Fly ",
+  "photo": "https://res.cloudinary.com/dziqbj8rm/image/upload/v1633520385/Muscles-gallery/lnehec0aqi6qwua0jwog.png",
+  "mainMuscleInvolved": "back",
+  "equipment": "Bands",
+  "instructions": "The Band Back Fly exercise will help strengthen your upper back and help improve your posture.  Steps :  1.) Start off by placing a resistance band mid-waist high either around a post or an exercise machine.  2.) Stand in front of the machine or post, keeping your feet together, abs tight and knees slightly bent so that you feel a tension in the band.  3.) Slowly and in a controlled manner, bring your arms back until they are parallel with your sides.  4.) Once you reach the final position, hold for a count while squeezing your back muscles, then return back to the starting position.  Tips :  1.) Make sure that you are able to use a band that you are able to perform the exercise with.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "615df95298579ba84d5346b7"
+  },
+  "name": "Ab Crunch Machine",
+  "photo": "https://res.cloudinary.com/dziqbj8rm/image/upload/v1633548570/Muscles-gallery/uehtr9adtajk7elkyf3m.png",
+  "mainMuscleInvolved": "abs",
+  "equipment": "Machine - Strength",
+  "instructions": "1.) Sit down in the machine and select a resistance that is with-in safe limits of your ability.  2.) Do a crunch in a slow controlled manner while slowly breathing out.  3.) Pause at the bottom of your crunch for 3 seconds.  4.) Return to your starting position in a slow controlled movement.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "615e29a698579ba84d53470c"
+  },
+  "name": "Cross Body Crunch",
+  "photo": "https://res.cloudinary.com/dziqbj8rm/image/upload/v1633560818/Muscles-gallery/qqwyezqxvrrmv77ujmr7.png",
+  "mainMuscleInvolved": "abs",
+  "equipment": "Body Only",
+  "instructions": "1.) Start off lying on your back, bringing your knees up in a 60 degree angle, keeping your feet flat on the floor and placing your hands on either side of your head.  2.) Slowly curl up raising your right elbow and your left knee so that they touch over your chest.  3.) Curl up raising your right elbow and your left knee so that they touch over your chest.  Tips:  1.) Contract your abs as you twist during this exercise.",
+  "__v": 0
+}]

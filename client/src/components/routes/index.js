@@ -13,6 +13,8 @@ import WorkoutDetails from "../pages/Workouts/workoutDetails";
 import WorkoutForm from "../pages/WorkoutForm/WorkoutForm";
 import { Switch, Route, Redirect } from "react-router-dom";
 
+
+
 const Routes = ({ storeUser, loggedUser }) => {
   return (
     <Switch>

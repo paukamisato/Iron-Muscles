@@ -77,7 +77,7 @@ export default class WorkoutForm extends Component {
         duration,
         owner,
       })
-      .then((data) => this.props.history.push("/"))
+      .then((data) => this.props.history.push("/workouts"))
       .catch((err) => console.log(err.err));
   };
   render() {

@@ -1,0 +1,18 @@
+.bg {
+  background-origin: border-box;
+  background-image: url("/src/image/gym.png");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+footer {
+  color: ivory;
+
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+

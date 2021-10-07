@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import WorkoutsService from "../../../service/workouts.service";
 import { Card, Button, Col } from "react-bootstrap";
+import "../Workouts/WorkoutsList.css"
 
 const workoutService = new WorkoutsService();
 
@@ -29,7 +30,7 @@ export default function WorkoutsList() {
                   <Card.Title>{workout.name}</Card.Title>
 
                   <Link to={`/workouts/${workout._id}`}>
-                    <Button variant="primary">Ver detalles</Button>
+                    <Button variant="dark">Ver detalles</Button>
                   </Link>
                 </Card.Body>
               </Card>

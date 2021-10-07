@@ -26,7 +26,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <Navigation />
+      <Navigation storeUser={setLoggedUser} loggedUser={loggedUser} />
       <Routes storeUser={setLoggedUser} loggedUser={loggedUser} />
       <Footer />
     </div>

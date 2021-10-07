@@ -1,0 +1,22 @@
+[{
+  "_id": {
+    "$oid": "6156bd7f1b97c211a14a399b"
+  },
+  "email": "david@123.com",
+  "password": "$2b$10$FDC0DUpzs5pV3eRE5eSfRuARHoC50I4lTtmBJO1ZgzGHHcdSZ8RQe",
+  "role": "user",
+  "photo": "C:\\fakepath\\imag.def.png",
+  "createdAt": {
+    "$date": "2021-10-01T07:49:19.984Z"
+  },
+  "updatedAt": {
+    "$date": "2021-10-07T07:33:33.980Z"
+  },
+  "__v": 0,
+  "age": 14,
+  "gender": "hombre",
+  "height": 162,
+  "lastname": "Kamisato",
+  "name": "David ",
+  "weight": 50
+}]

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import WorkoutService from "../../../service/workouts.service";
-import { Col, Container, Row, Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { Col, Container, Row, Card,Button } from "react-bootstrap";
 
 const workoutsService = new WorkoutService();
 
@@ -25,9 +26,9 @@ export default function WorkoutDetails(props) {
         <Row>
           <Col md={6}>
             <h1>Workout: {workout.workout.name}</h1>
-            <h3>day: {workout.workout.day}</h3>
+            <h3>{workout.workout.day}</h3>
             <hr />
-            <p>date: {workout.workout.date}</p>
+            <p>Duration: {workout.workout.duration} min</p>
             <p>Exercises:</p>
             {workout.workout.exercises.length > 0 ? (
               workout.workout.exercises.map((exercise) => {
@@ -38,6 +39,9 @@ export default function WorkoutDetails(props) {
                         <Card.Img variant="top" src={exercise.photo} />
                         <Card.Body>
                           <Card.Title>{exercise.name}</Card.Title>
+                          <Link to={`/exercises/${exercise._id}`}>
+                            <Button variant="dark">Ver detalles</Button>
+                          </Link>
                         </Card.Body>
                       </Card>
                     </Col>
@@ -47,8 +51,6 @@ export default function WorkoutDetails(props) {
             ) : (
               <p>Sin resultados</p>
             )}
-            <p>Duration: {workout.workout.duration}</p>
-            <p>User: {workout.workout.owner}</p>
           </Col>
         </Row>
       ) : (

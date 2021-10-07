@@ -121,7 +121,7 @@ export default class Profile extends Component {
                 />
               </Form.Group>
 
-              <Button variant="primary" type="submit">
+              <Button variant="dark" type="submit">
                 Submit
               </Button>
             </Form>
@@ -131,7 +131,7 @@ export default class Profile extends Component {
         )}
         <div>
           <Link to={"/workoutForm"}>
-            <Button variant="primary">New Workout</Button>
+            <Button variant="dark">New Workout</Button>
           </Link>
         </div>
       </>
