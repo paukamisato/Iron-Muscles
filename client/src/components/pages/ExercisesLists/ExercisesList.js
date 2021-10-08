@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ExercisesService from "../../../service/exercises.service";
-import { Card, Button, Col} from "react-bootstrap";
+import { Card, Button, Col, Row} from "react-bootstrap";
 import '../ExercisesLists/ExercisesList.css';
 
 const exercisesService = new ExercisesService();
@@ -21,15 +21,15 @@ export default function ExercisesList() {
   }, []);
 
   return (
-
-     exercises.length > 0 ? (
+    <Row  md={4}>
+     {exercises.length > 0 ? (
       exercises.map((exercise) => {
         return (
           <div>
-            <Col md={4} className="mb-3">
-              <Card>
-                <Card.Img variant="top" src={exercise.photo} />
-                <Card.Body>
+            <Col md={5} className="mb-3">
+              <Card style={{ height: "30rem", width:"25rem"}}>
+                <Card.Img style={{ height: "20rem", width:"15rem"}} variant="top" src={exercise.photo} />
+                <Card.Body  >
                   <Card.Title>{exercise.name}</Card.Title>
                   <Link to={`/exercises/${exercise._id}`}>
                   <Button variant="dark">Ver detalles</Button>
@@ -40,6 +40,7 @@ export default function ExercisesList() {
           </div>
         );
       })
-    ) : (<p>Sin resultados</p>)
+    ) : (<p>Sin resultados</p>)}
+    </Row>
   );
 }

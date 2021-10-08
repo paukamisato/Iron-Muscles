@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import AuthService from "../../../service/auth.service";
 import CloudService from "../../../service/cloud.service";
 import { Container, Form, Button } from "react-bootstrap";
+import "../Signup/Signup.css"
 
 export default class Signup extends Component {
   constructor(props) {
@@ -54,8 +55,9 @@ export default class Signup extends Component {
   render() {
     return (
       <Container>
-        <Form onSubmit={this.handleFormSubmit}>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+      <h4 className="title-signup">Signup</h4>
+        <Form onSubmit={this.handleFormSubmit} className='form-signup'>
+          <Form.Group className="mb-3-signup" controlId="formBasicEmail">
             <Form.Label>Email</Form.Label>
             <Form.Control
               name="email"
@@ -66,7 +68,7 @@ export default class Signup extends Component {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Group className="mb-3-signup" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
             <Form.Control
               name="password"
@@ -77,7 +79,7 @@ export default class Signup extends Component {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formFile">
+          <Form.Group className="mb-3-signup" controlId="formFile">
             <Form.Label>Photo</Form.Label>
             <Form.Control
               onChange={(e) => this.handleFileUpload(e)}
@@ -86,7 +88,7 @@ export default class Signup extends Component {
             />
           </Form.Group>
          
-          <Form.Group className="mb-3" controlId="formBasicName">
+          <Form.Group className="mb-3-signup" controlId="formBasicName">
             <Form.Label>Name</Form.Label>
             <Form.Control
               name="name"
@@ -97,7 +99,7 @@ export default class Signup extends Component {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicLastname">
+          <Form.Group className="mb-3-signup" controlId="formBasicLastname">
             <Form.Label>Lastname</Form.Label>
             <Form.Control
               name="lastname"
@@ -108,7 +110,7 @@ export default class Signup extends Component {
             />
           </Form.Group>
 
-          <Button variant="primary" type="submit">
+          <Button variant="dark" type="submit">
             Submit
           </Button>
         </Form> 

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Container, Form, Button } from "react-bootstrap";
 import AuthService from "../../../service/auth.service";
+import "../Login/Login.css"
 
 class Login extends Component {
   constructor(props) {
@@ -9,7 +10,7 @@ class Login extends Component {
       email: "",
       password: "",
     };
-    
+
     this.authService = new AuthService();
   }
 
@@ -34,10 +35,10 @@ class Login extends Component {
   render() {
     return (
       <Container>
-        <Form onSubmit={this.handleFormSubmit}>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form onSubmit={this.handleFormSubmit} className='form-login'>
+          <Form.Group className="mb-6" controlId="formBasicEmail">
             <Form.Label>Email</Form.Label>
-            <Form.Control
+            <Form.Control className= "box"
               name="email"
               value={this.state.email}
               onChange={this.handleInput}
@@ -45,10 +46,9 @@ class Login extends Component {
               placeholder="Enter Email"
             />
           </Form.Group>
-
-          <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Group className="mb-2" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control
+            <Form.Control className= "box"
               name="password"
               value={this.state.password}
               onChange={this.handleInput}
@@ -56,8 +56,8 @@ class Login extends Component {
               placeholder="Password"
             />
           </Form.Group>
-
-          <Button variant="primary" type="submit">
+          <Button variant="dark
+          " type="submit">
             Submit
           </Button>
         </Form>

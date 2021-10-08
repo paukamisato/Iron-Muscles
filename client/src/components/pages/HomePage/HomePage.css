@@ -1,4 +1,6 @@
 .bg {
+  color:ivory;
+  padding-top: 30%;
   background-origin: border-box;
   background-image: url("/src/image/gym.png");
   height: 100vh;
@@ -6,13 +8,14 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+h1{
+  font-size: 80px;
+  
+}
 
 footer {
   color: ivory;
-
   position: fixed;
   bottom: 0;
   width: 100%;
 }
-
-

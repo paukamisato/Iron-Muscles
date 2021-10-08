@@ -1,0 +1,19 @@
+.flex-container {
+    margin: 20px 0 50px;
+    list-style: none;
+    border: 1px solid silver;
+    padding: 0;
+    display: flex;
+}
+.justify-content-between {
+    justify-content: space-between;
+}
+.flex-item {
+    background: tomato;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    line-height: 100px;
+    color: white;
+    text-align: center;
+}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ExercisesService from "../../../service/exercises.service";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row, Card, ListGroup } from "react-bootstrap";
+import "../Exercises/ExerciseDetails.css"
 
 const exercisesService = new ExercisesService();
 
@@ -22,25 +23,23 @@ export default function ExercisesDetails(props) {
     return () => (mounted = false);
   }, []);
 
-
   return (
     <Container>
       {exercise ? (
-        <Row>
-          <Col md={6}>
-            <h1>Exercise: {exercise.exercise.name}</h1>
-            <h3>Description: {exercise.exercise.instructions}</h3>
-
-            <hr />
-
-            <p>Main muscl involved: {exercise.exercise.mainMuscleInvolved}</p>
-            <p>Equipment: {exercise.exercise.equipment}</p>
+        <Row md={2} className= "row-exercises">
+          <Col >
+            <Card  style={{ height: "30rem", width:"18rem"}}>
+              <Card.Img variant="top" src={exercise.exercise.photo} style={{ height: "30rem"}}/>
+            </Card>
           </Col>
-          <Col md={4}>
-            <img
-              src={exercise.exercise.photo}
-              alt={exercise.exercise.namename}
-            />
+          <Col >
+            <Card style={{ height: "30rem", width:"40rem"}}>
+              <ListGroup variant="flush">
+                <ListGroup.Item><h2>{exercise.exercise.name}</h2></ListGroup.Item>
+                <ListGroup.Item>Main muscle involved: {exercise.exercise.mainMuscleInvolved}</ListGroup.Item>
+                <ListGroup.Item>{exercise.exercise.instructions}</ListGroup.Item>
+              </ListGroup>
+            </Card>
           </Col>
         </Row>
       ) : (

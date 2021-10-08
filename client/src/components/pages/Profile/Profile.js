@@ -1,13 +1,16 @@
 import React, { Component } from "react";
-import { Container, Form, Button } from "react-bootstrap";
+import { Container, Form, Button, Card, Col } from "react-bootstrap";
 import AuthService from "../../../service/auth.service";
+import CloudService from "../../../service/cloud.service";
 import { Link } from "react-router-dom";
+import "../../pages/Profile/Profile.css"
 
 export default class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = { ...this.props.loggedUser };
     this.authService = new AuthService();
+    this.cloudService = new CloudService();
   }
 
   componentDidMount = () => {
@@ -26,6 +29,24 @@ export default class Profile extends Component {
     this.setState({
       [name]: value,
     });
+  };
+
+  handleFileUpload = (e) => {
+    console.log("The file to be uploaded is: ", e.target.files[0]);
+
+    const uploadData = new FormData();
+    uploadData.append("photo", e.target.files[0]);
+
+    this.cloudService
+      .handleUpload(uploadData)
+      .then((response) => {
+        console.log("response is: ", response);
+
+        this.setState({ photo: response.data.secure_url });
+      })
+      .catch((err) => {
+        console.log("Error while uploading the file: ", err);
+      });
   };
 
   handleFormSubmit = (e) => {
@@ -48,19 +69,22 @@ export default class Profile extends Component {
       <>
         {this.state.email ? (
           <Container>
-            <Form onSubmit={this.handleFormSubmit}>
-              <Form.Group className="mb-3" controlId="formFile">
-                <Form.Label>Photo</Form.Label>
-                <Form.Control
-                  name="photo"
-                  value={this.state.photo}
-                  onChange={this.handleChange}
-                  type="text"
-                  placeholder="Photo"
-                />
-              </Form.Group>
-              <h1>Personal Information</h1>
-              <Form.Group className="mb-3" controlId="formBasicName">
+              <h4 className="profile" >Personal Information</h4>
+            <Col className="photo" >
+            <Card  style={{ width: "20rem"}}>
+              <Card.Img variant="top" src={this.state.photo} />
+            </Card>
+            </Col>
+            <Form onSubmit={this.handleFormSubmit}className="form-profile">
+            <Form.Group className="mb-3-profile" controlId="formFile">
+            <Form.Label>Photo</Form.Label>
+            <Form.Control
+              onChange={(e) => this.handleFileUpload(e)}
+              type="file"
+              placeholder="Photo"
+            />
+          </Form.Group>
+              <Form.Group className="mb-3-profile" controlId="formBasicName">
                 <Form.Label>Name</Form.Label>
                 <Form.Control
                   name="name"
@@ -70,7 +94,7 @@ export default class Profile extends Component {
                   placeholder="Name"
                 />
               </Form.Group>
-              <Form.Group className="mb-3" controlId="formBasicLastname">
+              <Form.Group className="mb-3-profile" controlId="formBasicLastname">
                 <Form.Label>Lastname</Form.Label>
                 <Form.Control
                   name="lastname"
@@ -80,7 +104,7 @@ export default class Profile extends Component {
                   placeholder="Lastname"
                 />
               </Form.Group>
-              <Form.Group className="mb-3" controlId="formBasicAge">
+              <Form.Group className="mb-3-profile" controlId="formBasicAge">
                 <Form.Label>Age</Form.Label>
                 <Form.Control
                   name="age"
@@ -90,7 +114,7 @@ export default class Profile extends Component {
                   placeholder="Age"
                 />
               </Form.Group>
-              <Form.Group className="mb-3" controlId="formBasicGender">
+              <Form.Group className="mb-3-profile" controlId="formBasicGender">
                 <Form.Label>Gender</Form.Label>
                 <Form.Control
                   name="gender"
@@ -100,7 +124,7 @@ export default class Profile extends Component {
                   placeholder="Gender"
                 />
               </Form.Group>
-              <Form.Group className="mb-3" controlId="formBasicHeight">
+              <Form.Group className="mb-3-profile" controlId="formBasicHeight">
                 <Form.Label>Height</Form.Label>
                 <Form.Control
                   name="height"
@@ -110,7 +134,7 @@ export default class Profile extends Component {
                   placeholder="Height"
                 />
               </Form.Group>
-              <Form.Group className="mb-3" controlId="formBasicWeight">
+              <Form.Group className="mb-3-profile" controlId="formBasicWeight">
                 <Form.Label>Weight</Form.Label>
                 <Form.Control
                   name="weight"
@@ -129,11 +153,11 @@ export default class Profile extends Component {
         ) : (
           <p>Loading....</p>
         )}
-        <div>
-          <Link to={"/workoutForm"}>
+        {/* <div>
+          <Link  to={"/workoutForm"}>
             <Button variant="dark">New Workout</Button>
           </Link>
-        </div>
+        </div> */}
       </>
     );
   }

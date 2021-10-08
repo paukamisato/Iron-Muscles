@@ -1,0 +1,27 @@
+.mb-3-profile{
+    width: 300px;
+    margin-top: 0,5rem; 
+}
+
+.profile{
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+  }
+
+Button {
+    margin: 1rem;
+    display: flex;
+    align-items: flex-end;
+} 
+
+.photo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }

@@ -3,6 +3,7 @@ import ExercisesService from "../../../service/exercises.service";
 import CloudService from "../../../service/cloud.service";
 import Select from "react-select";
 import { Container, Form, Button } from "react-bootstrap";
+import "../Exercises/ExcercisesCreate.css"
 
 export default class ExercisesCreate extends Component {
   constructor(props) {
@@ -82,8 +83,10 @@ export default class ExercisesCreate extends Component {
   render() {
     return (
       <Container>
-        <Form onSubmit={this.handleFormSubmit}>
-          <Form.Group className="mb-3" controlId="formBasicName">
+        <h4 className="title" >New exercise</h4>
+        <Form onSubmit={this.handleFormSubmit} className="form-exercise">
+
+          <Form.Group className="mb-3-exercises" controlId="formBasicName">
             <Form.Label>Name</Form.Label>
             <Form.Control
               name="name"
@@ -94,7 +97,7 @@ export default class ExercisesCreate extends Component {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formFile">
+          <Form.Group className="mb-3-exercises" controlId="formFile">
             <Form.Label>Photo</Form.Label>
             <Form.Control
               onChange={(e) => this.handleFileUpload(e)}
@@ -103,7 +106,7 @@ export default class ExercisesCreate extends Component {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicMainMuscleInvolved">
+          <Form.Group className="mb-3-exercises" controlId="formBasicMainMuscleInvolved">
             <Form.Label>Main Muscle Involved</Form.Label>
             <Select
               options={this.mainMuscleInvolvedOptions}
@@ -113,7 +116,7 @@ export default class ExercisesCreate extends Component {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicEquipment">
+          <Form.Group className="mb-3-exercises" controlId="formBasicEquipment">
             <Form.Label>Equipment</Form.Label>
             <Form.Control
               name="equipment"
@@ -124,7 +127,7 @@ export default class ExercisesCreate extends Component {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicInstructions">
+          <Form.Group className="mb-3-exercises" controlId="formBasicInstructions">
             <Form.Label>Instructions</Form.Label>
             <Form.Control
               name="instructions"
@@ -135,7 +138,7 @@ export default class ExercisesCreate extends Component {
             />
           </Form.Group>
 
-          <Button variant="primary" type="submit">
+          <Button variant="dark" type="submit">
             Submit
           </Button>
         </Form>

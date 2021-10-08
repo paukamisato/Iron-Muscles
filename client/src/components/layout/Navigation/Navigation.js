@@ -61,9 +61,12 @@ export default function Navigation(props) {
                 <NavDropdown.Item as={Link} to="/profile">
                   Profile
                 </NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/exercises">
-                  Exercises
+                <NavDropdown.Item as={Link} to="/workoutForm">
+                  Add new Workout
                 </NavDropdown.Item>
+                {/* <NavDropdown.Item as={Link} to="/exercises">
+                  Exercises
+                </NavDropdown.Item> */}
                 <NavDropdown.Divider />
                 <NavDropdown.Item as={Link} to="/exercises/create">
                   Add new exercise

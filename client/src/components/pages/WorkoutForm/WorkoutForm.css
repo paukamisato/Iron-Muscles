@@ -1,0 +1,16 @@
+
+.form-workout{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.mb-3-workout{
+    
+    width: 400px;
+    margin-top: 0,5rem; 
+}
+
+.title-workout{
+    margin-top: 5rem;
+  }
+

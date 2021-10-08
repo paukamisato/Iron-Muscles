@@ -7,11 +7,10 @@ const exercisesService = new ExercisesService();
 
 export default function ExercisesBackList() {
   const [exercises, setExercises] = useState([]);
- 
+
   useEffect(() => {
     let mounted = true;
-    exercisesService.getAllExercises()
-    .then((exercise) => {
+    exercisesService.getAllExercises().then((exercise) => {
       if (mounted) {
         setExercises(exercise.data);
       }
@@ -19,8 +18,10 @@ export default function ExercisesBackList() {
     return () => (mounted = false);
   }, []);
 
-  const backExercise = exercises.filter((item) => item.mainMuscleInvolved === "back")
-  console.log("back",backExercise)
+  const backExercise = exercises.filter(
+    (item) => item.mainMuscleInvolved === "back"
+  );
+  console.log("back", backExercise);
   return backExercise.length > 0 ? (
     backExercise.map((item) => {
       return (
@@ -30,9 +31,8 @@ export default function ExercisesBackList() {
               <Card.Img variant="top" src={item.photo} />
               <Card.Body>
                 <Card.Title>{item.name}</Card.Title>
-
                 <Link to={`/exercises/${item._id}`}>
-                  <Button variant="primary">Ver detalles</Button>
+                  <Button variant="dark">Ver detalles</Button>
                 </Link>
               </Card.Body>
             </Card>

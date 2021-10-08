@@ -4,6 +4,7 @@ import Select from "react-select";
 import WorkoutService from "../../../service/workouts.service";
 import ExercisesService from "../../../service/exercises.service";
 import { Container, Form, Button } from "react-bootstrap";
+import "../WorkoutForm/WorkoutForm.css"
 
 export default class WorkoutForm extends Component {
   constructor(props) {
@@ -84,8 +85,9 @@ export default class WorkoutForm extends Component {
     console.log(this.state.exercises);
     return (
       <Container>
-        <Form onSubmit={this.handleFormSubmit}>
-          <Form.Group className="mb-3" controlId="formBasicName">
+      <h4 className="title-workout" >New workout</h4>
+        <Form onSubmit={this.handleFormSubmit} className="form-workout">
+          <Form.Group className="mb-3-workout" controlId="formBasicName">
             <Form.Label>Name</Form.Label>
             <Form.Control
               name="name"
@@ -96,7 +98,7 @@ export default class WorkoutForm extends Component {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicDay">
+          <Form.Group className="mb-3-workout" controlId="formBasicDay">
             <Form.Label>Day</Form.Label>
             <Select
               options={this.dayOptions}
@@ -106,7 +108,7 @@ export default class WorkoutForm extends Component {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicExercises">
+          <Form.Group className="mb-3-workout" controlId="formBasicExercises">
             <Form.Label>Exercises</Form.Label>
 
             <MultiSelect
@@ -122,7 +124,7 @@ export default class WorkoutForm extends Component {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicDate">
+          <Form.Group className="mb-3-workout" controlId="formBasicDate">
             <Form.Label>Date</Form.Label>
             <Form.Control
               name="date"
@@ -133,8 +135,8 @@ export default class WorkoutForm extends Component {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicLastDuration">
-            <Form.Label>LastDuration</Form.Label>
+          <Form.Group className="mb-3-workout" controlId="formBasicLastDuration">
+            <Form.Label>Duration</Form.Label>
             <Form.Control
               name="duration"
               value={this.state.duration}
@@ -145,7 +147,7 @@ export default class WorkoutForm extends Component {
             />
           </Form.Group>
 
-          <Button variant="primary" type="submit">
+          <Button variant="dark" type="submit">
             Submit
           </Button>
         </Form>
