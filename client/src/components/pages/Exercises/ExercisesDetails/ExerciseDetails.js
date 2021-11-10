@@ -1,28 +1,32 @@
 import React, { useState, useEffect } from "react";
-import ExercisesService from "../../../service/exercises.service";
+import ExercisesService from "../../../../service/exercises.service";
 import { Col, Container, Row, Card, ListGroup } from "react-bootstrap";
-import "../Exercises/ExerciseDetails.css"
+import "../ExercisesDetails/ExerciseDetails.css"
 
 const exercisesService = new ExercisesService();
 
 export default function ExercisesDetails(props) {
+  
   const [exercise, setExercise] = useState();
 
   console.log("props: ", props.match.params);
   const { id } = props.match.params;
 
   useEffect(() => {
-    let mounted = true;
-    exercisesService.getOneExercise(id).then((exercise) => {
-      if (mounted) {
-        setExercise(exercise.data);
-      }
-      console.log("ENTROdetails: ", mounted);
-      console.log("exercise data: ", exercise.data);
-    });
-    return () => (mounted = false);
+    
+    exercisesService
+    .getOneExercise(id)
+    .then( ( exercise ) => { setExercise( exercise.data ) });
+
   }, []);
 
+  const deleteExercise = () => {
+    
+    exercisesService
+    .deleteOneExercise (id)
+    .then( (res) => {props.history.push("/exercises")} )
+  }
+  
   return (
     <Container>
       {exercise ? (
@@ -38,9 +42,10 @@ export default function ExercisesDetails(props) {
                 <ListGroup.Item><h2>{exercise.exercise.name}</h2></ListGroup.Item>
                 <ListGroup.Item>Main muscle involved: {exercise.exercise.mainMuscleInvolved}</ListGroup.Item>
                 <ListGroup.Item>{exercise.exercise.instructions}</ListGroup.Item>
+                <button onClick= { deleteExercise } variant="dark">Delete</button>
               </ListGroup>
             </Card>
-          </Col>
+          </Col>          
         </Row>
       ) : (
         <h3>Loading...</h3>

@@ -1,21 +1,19 @@
 import axios from "axios";
 
-class ExercisesService {
-  constructor() {
-    this.app = axios.create({
-      baseURL: process.env.REACT_APP_BASE_URL + "/exercises",
-      withCredentials: true,
-    });
-  }
+const ExercisesService = () => {
+  
+  const instance = axios.create({
+    baseURL: process.env.REACT_APP_BASE_URL + "/exercises",
+    withCredentials: true,
+  });
+ 
+  const getAllExercises = () => instance.get("/");
+  const getOneExercise = (exercise_id) => instance.get(`/${exercise_id}`);
+  const createExercise = (exerciseDetails) =>  (instance.post("/", exerciseDetails));
+  const deleteOneExercise = (exercise_id) => instance.delete(`/${exercise_id}`);
+  const updateExercise = (exercise_id) => instance.put(`/${exercise_id}`);
 
-  getAllExercises = () => this.app.get("/");
-  getOneExercise = (exercise_id) => this.app.get(`/${exercise_id}`);
-  createExercise = (exerciseDetails) => {
-    console.log(exerciseDetails);
-    return this.app.post("/", exerciseDetails);
-  };
-  deleteOneExercise = (exercise_id) => this.app.delete(`/${exercise_id}`);
-  updateExercise = (exercise_id) => this.app.put(`/${exercise_id}`);
+  return[ getAllExercises, getOneExercise, createExercise, deleteOneExercise, updateExercise ]
 }
 
 export default ExercisesService;

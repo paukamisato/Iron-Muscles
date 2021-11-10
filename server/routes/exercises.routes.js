@@ -28,18 +28,12 @@ router.get("/:id", (req, res) => {
 });
 
 router.post("/", (req, res) => {
+ 
   const { name, photo, mainMuscleInvolved, equipment, instructions } = req.body;
-  console.log("server", req.body);
-  Exercise.create({
-    name,
-    photo,
-    mainMuscleInvolved,
-    equipment,
-    instructions
-  })
-    .then((exercise) =>
-      res.status(200).json({ exercise, message: "Exercise created" })
-    )
+ 
+  Exercise
+  .create({ name, photo, mainMuscleInvolved, equipment, instructions })
+    .then((exercise) =>res.status(200).json({ exercise, message: "Exercise created" }))
     .catch((err) =>
       res
         .status(500)

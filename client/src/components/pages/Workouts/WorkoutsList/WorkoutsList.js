@@ -1,22 +1,13 @@
-import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import WorkoutsService from "../../../service/workouts.service";
 import { Card, Button, Col, Row, Container } from "react-bootstrap";
-import "../Workouts/WorkoutsList.css";
-
-const workoutService = new WorkoutsService();
+import { useWorkoutList } from "../../../hooks/useWorkoutList";
+import "../WorkoutsList/WorkoutsList.css";
 
 export default function WorkoutsList() {
-  const [workout, setWorkout] = useState([]);
-  useEffect(() => {
-    let mounted = true;
-    workoutService.getAllWorkouts().then((workout) => {
-      if (mounted) {
-        setWorkout(workout.data);
-      }
-    });
-    return () => (mounted = false);
-  }, []);
+
+  const [workout] = useWorkoutList();
+
+  
 
   return (
     <Container>

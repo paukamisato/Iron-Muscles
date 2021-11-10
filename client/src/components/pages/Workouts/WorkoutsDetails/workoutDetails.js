@@ -1,24 +1,28 @@
 import React, { useState, useEffect } from "react";
-import WorkoutService from "../../../service/workouts.service";
+import WorkoutService from "../../../../service/workouts.service";
 import { Link } from "react-router-dom";
 import { Col, Container, Row, Card, Button } from "react-bootstrap";
 
 const workoutsService = new WorkoutService();
 
-export default function WorkoutDetails(props) {
-  const [workout, setWorkout] = useState();
-
+export default function WorkoutDetails( props ) {
+ 
+  const [ workout, setWorkout ] = useState();
   const { id } = props.match.params;
 
   useEffect(() => {
-    let mounted = true;
-    workoutsService.getOneWorkout(id).then((workout) => {
-      if (mounted) {
-        setWorkout(workout.data);
-      }
-    });
-    return () => (mounted = false);
+   
+    workoutsService
+    .getOneWorkout( id )
+    .then( ( workout ) => { setWorkout( workout.data ) } );
+    
   }, []);
+
+  const deleteWorkout = () => {
+    workoutsService
+    .deleteOneWorkout (id)
+    .then( (res) => {props.history.push("/workouts")} )
+  }
 
   return (
     <Container>
@@ -54,6 +58,7 @@ export default function WorkoutDetails(props) {
             )}
             </Row>
           </Col>
+          <button onClick = { deleteWorkout }>delete</button>
         </Row>
       ) : (
         <h3>Loading...</h3>

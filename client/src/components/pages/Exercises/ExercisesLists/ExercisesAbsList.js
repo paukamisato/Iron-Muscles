@@ -1,23 +1,12 @@
-import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import ExercisesService from "../../../service/exercises.service";
 import { Card, Button, Col } from "react-bootstrap";
-import '../ExercisesLists/ExercisesList.css'; 
+import "../ExercisesLists/ExercisesList.css"; 
+import useExercisesList from "../../../hooks/useExercisesList";
 
-const exercisesService = new ExercisesService();
 
 export default function ExercisesAbsList() {
-  const [exercises, setExercises] = useState([]);
-
-  useEffect(() => {
-    let mounted = true;
-    exercisesService.getAllExercises().then((exercise) => {
-      if (mounted) {
-        setExercises(exercise.data);
-      }
-    });
-    return () => (mounted = false);
-  }, []);
+  
+  const [ exercises ] = useExercisesList();
 
   const absExercise = exercises.filter(
     (item) => item.mainMuscleInvolved === "abs"

@@ -1,13 +1,14 @@
 import axios from "axios";
 
-class CloudService {
-  constructor() {
-    this.app = axios.create({
-      baseURL: process.env.REACT_APP_BASE_URL + "/upload",
-      withCredentials: true,
-    });
-  }
-  handleUpload = (theFile) => this.app.post("/", theFile);
+const CloudService = () => {
+ 
+  const instance = axios.create({
+    baseURL: process.env.REACT_APP_BASE_URL + "/upload",
+    withCredentials: true,
+  });
+  
+  const handleUpload = (theFile) => instance.post("/", theFile);
+  return (handleUpload);
 }
 
 export default CloudService;

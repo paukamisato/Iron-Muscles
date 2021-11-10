@@ -30,6 +30,7 @@ const workoutSchema = new Schema({
   duration: {
     type: Number,
   },
+
   owner: {
     type: Schema.Types.ObjectId,
     ref: "User",
